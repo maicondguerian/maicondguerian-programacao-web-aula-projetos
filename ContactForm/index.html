@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formulario HTML/CSS Aula</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form class="signup-form">
+
+      <!-- Cabeçalho formulario -->
+      <div class="form-header">
+        <h1>Contato</h1>
+      </div>
+
+      <!-- corpo do formulario -->
+      <div class="form-body">
+
+        <!-- Nome e sobrenome -->
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label for="firstname" class="label-title">Nome *</label>
+            <input type="text" id="firstname" class="form-input" placeholder="digite seu nome" required="required" />
+          </div>
+          <div class="form-group right">
+            <label for="lastname" class="label-title">Sobrenome</label>
+            <input type="text" id="lastname" class="form-input" placeholder="digite seu sobrenome" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="" class="label-title">Email*</label>
+          <input type="email" id="email" class="form-input" placeholder="digite seu email" required="required">
+        </div>
+
+        <!-- Passwrod and confirm password -->
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label for="tel" class="label-title">Telefone*</label>
+            <input type="tel" id="tel" class="form-input" placeholder="digite seu telefone" required="required">
+          </div>
+          <div class="form-group right">
+            <label for="confirm-password" class="label-title">Telefone2 *</label>
+            <input type="tel" class="form-input" id="confirm-password" placeholder="digite seu telefone" required="required">
+          </div>
+        </div>
+
+        <!-- sexo disponibildade -->
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label class="label-title">Sexo:</label>
+            <div class="input-group">
+              <label for="masculino"><input type="radio"  value="masculino" id="masculino"> Masculino</label>
+              <label for="female"><input type="radio"  value="feminino" id="feminino"> Feminino</label>
+            </div>
+          </div>
+          <div class="form-group right">
+            <label class="label-title">Disponibilidade para contato</label>
+            <div >
+              <label><input type="checkbox" value="Web">Manhã</label>
+              <label><input type="checkbox" value="iOS">Tarde</label>
+              <label><input type="checkbox" value="Andriod">Noite</label>
+              <label><input type="checkbox" value="Game">Todos</label>
+            </div>
+          </div>
+        </div>
+      
+
+        <!-- Bio -->
+        <div class="form-group">
+          <label for="choose-file" class="label-title">Fale sobre você</label>
+          <textarea class="form-input" rows="4" cols="50" style="height:auto"></textarea>
+
+          <a href="mailto:webmaster@example.com">Ou enviar um email</a>
+        </div>
+      </div>
+
+      <!-- rodape -->
+      <div class="form-footer">
+        <span>* obrigatório</span>
+        <button type="submit" class="btn">Enviar</button>
+      </div>
+
+    </form>
+  </body>
+</html>
