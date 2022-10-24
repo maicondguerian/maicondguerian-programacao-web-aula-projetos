@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #area{
+            background-color: greenyellow;
+            height: 200px;
+            width: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div id="area" onclick="clica()" onmouseenter="entrar()" onmouseout="sair()">Lorem, ipsum dolor.
+    </div>
+    <script>
+        var b = document.getElementById("area")
+        function clica() {
+             b.innerText="cliclou"
+             b.style.backgroundColor ="red"
+             
+         }
+         function sair(){
+            b.innerText="saiu"
+            b.style.backgroundColor="greenyellow"
+         }
+         function entrar(){
+            b.innerText="entrou"
+         }
+     </script>
+</body>
+</html>
