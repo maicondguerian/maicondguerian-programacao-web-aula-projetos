@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +9,31 @@
     <!-- CSS only -->
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <h1>calculadora-js</h1>
         <label for="input1">Valor 1</label>
-        <input  type="textr" id="first_value" placeholder="Digite o primeiro valor"><span id="visor1">v1</span><br><span id="operador_cal"></span><br>
-        
+        <input type="textr" id="first_value" onchange="change_number_nb1(event)"
+            placeholder="Digite o primeiro valor"><span id="visor1">v1</span><br><span id="operador_cal"></span><br>
+
         <label for="input2">Valor 2</label>
-        <input type="text" id="second_value" placeholder="Digite o segundo valor"><span id="visor2">v2</span>
+        <input type="text" id="second_value" onchange="change_number_nb2(event)"
+            placeholder="Digite o segundo valor"><span id="visor2">v2</span>
         <br><br>
         <label for="res">Resultado</label>
-        <input type="text" id="res" disabled> <span id="v2">=</span>
+        <input type="text" id="res" disabled> <span id="result">=</span>
         <br><br>
         <button id="somar_js" value="+">+JS</button>
         <button id="somar_jq">+JQ</button>
-        <button id="mutiplicar_jq" >*</button>
+        <button id="mutiplicar_jq">*</button>
         <button id="dividir_jq" value="/">/</button>
         <button id="reset_inputs">Reset Values</button>
         <br><br>
@@ -49,84 +54,92 @@
 
             //     })
             // }) 
+
             //limpa os campos de imput e erros
-            let rst_inputs = document.getElementById("reset_inputs").addEventListener("click", ()=>{
-                 v1 = document.getElementById("first_value").value=""
-                 v2 = document.getElementById("second_value").value=""
-                 res= document.getElementById("res").value=""
-                  pic_error = document.getElementById("img")
-                  visor_v1 = document.getElementById("visor1")
-                  visor_v2 = document.getElementById("visor2")
-                 error_alert.innerHTML="" 
-                 pic_error.innerHTML=""
-                 visor_v1.innerHTML=""
-                 visor_v2.innerHTML=""
+            let rst_inputs = document.getElementById("reset_inputs").addEventListener("click", () => {
+                v1 = document.getElementById("first_value").value = ""
+                v2 = document.getElementById("second_value").value = ""
+                res = document.getElementById("res").value = ""
+                pic_error = document.getElementById("img").innerHTML = ""
+                visor_v1 = document.getElementById("visor1").innerHTML = "v1"
+                visor_v2 = document.getElementById("visor2").innerHTML = "v2"
+                error_alert = document.getElementById("error_alert").innerHTML = ""
+                result = document.getElementById("result").innerHTML = "="
             })
-            
-            let somar_js = document.getElementById("somar_js").addEventListener("click", ()=>{
+            //calculo de adição js puro
+            let somar_js = document.getElementById("somar_js").addEventListener("click", () => {
                 let v1 = document.getElementById("first_value").value
                 let v2 = document.getElementById("second_value").value
                 let pic_error = document.getElementById("img")
                 let error_alert = document.getElementById("error_alert")
-                let visor_v1 = document.getElementById("visor1")
-                let visor_v2 = document.getElementById("visor2")
-                let operador = document.getElementById("operador_cal")
-                visor_v1.innerHTML=(first_value).value
-                visor_v2.innerHTML=(second_value).value
-                operador.innerHTML ="+"
-                if (first_value.value != "" && second_value.value != ""){
-                    soma= parseFloat(v1) + parseFloat(v2)
-               let res=document.getElementById("res").value = soma
-                }else {
-                error_alert.innerHTML="*Erro! Preencha os campos antes de começar"
-                pic_error.innerHTML="<img src='error.gif'>"
-                
-        
-            }
-              
+
+
+
+
+                if (first_value.value != "" && second_value.value != "") {
+                    soma = parseFloat(v1) + parseFloat(v2)
+                    let res = document.getElementById("res").value = soma
+                    let result = document.getElementById("result").innerHTML += soma
+                } else {
+                    error_alert.innerHTML = "*Erro! Preencha os campos antes de começar"
+                    pic_error.innerHTML = "<img src='error.gif'>"
+
+
+
+                }
+
+
+
             })
 
-             $("#somar_jq").click(() => {
+            $("#somar_jq").click(() => {
+                let v1 = $("#first_value").val()
+                let v2 = $("#second_value").val()
+                if (first_value.value == "" && second_value.value == "") {
+                    alert("Erro!Preencha os campos antes de começar ")
+                } else {
+                }
+                soma = parseInt(v1) + parseInt(v2)
+                $("#res").val(soma)
+                $("#reset_inputs").click(() => {
+                    v1 = $("#first_value").val("")
+                    v2 = $("#second_value").val("")
+                    res = $("#res").val("")
+                })
+            })
+
+            $("#mutiplicar_jq").click(() => {
                     let v1 = $("#first_value").val()
                     let v2 = $("#second_value").val()
-                    if (first_value.value == "" && second_value.value == ""){
-                        alert("Erro!Preencha os campos antes de começar ")
-                    } else{
-                    }
-                    soma = parseInt(v1) + parseInt(v2)
+                    soma = parseInt(v1) * parseInt(v2)
                     $("#res").val(soma)
-                    $("#reset_inputs").click(() => {
-                        v1 = $("#first_value").val("")
-                        v2 = $("#second_value").val("")
-                        res= $("#res").val("")
-                    })
-                })
-                    
                 
-            $("#mutiplicar_jq").click(()=>{
-                let v1= $("#first_value").val()
-                let v2=$ ("#second_value").val()
-                soma = parseInt(v1) * parseInt(v2)
-                $("#res").val(soma)
+                
             })
 
-            $("#dividir_jq").click(()=>{
-                let v1= $("#first_value").val()
-                let v2=$ ("#second_value").val()
+            $("#dividir_jq").click(() => {
+                let v1 = $("#first_value").val()
+                let v2 = $("#second_value").val()
                 soma = parseInt(v1) / parseInt(v2)
                 $("#res").val(soma)
             })
 
-                
-            
 
+            function change_number_nb1() {
+                let visor_v1 = document.getElementById("visor1").innerHTML = (first_value).value
+            }
+
+            function change_number_nb2() {
+                let visor_v2 = document.getElementById("visor2").innerHTML = (second_value).value
+            }
         </script>
-    
-        
+
+
     </div>
-    
-        
-    
-        
+
+
+
+
 </body>
+
 </html>
