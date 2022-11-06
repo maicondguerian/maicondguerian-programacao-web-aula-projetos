@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,17 +22,28 @@
 
 <body>
     <div class="container">
-        <h1>calculadora-js</h1>
-        <label for="input1">Valor 1</label>
-        <input type="textr" id="first_value" onchange="change_number_nb1(event)"
-            placeholder="Digite o primeiro valor"><span id="visor1">v1</span><br><span id="operador_cal"></span><br>
 
-        <label for="input2">Valor 2</label>
-        <input type="text" id="second_value" onchange="change_number_nb2(event)"
-            placeholder="Digite o segundo valor"><span id="visor2">v2</span>
+        <div>
+            <input type="checkbox" class="checkbox" id="chk"/>
+            <label class="label" for="chk">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label>
+        </div>
+        
+        <span class="edt" id="titulo">calculadora-js</span>
+        <label>Valor 1</label>
+        <input type="textr" class="input_c" id="first_value" onchange="change_number_nb1(event)"
+            placeholder="Primeiro valor"><span id="visor1" >v1</span><br><span id="operador_cal"
+            onclick="operador_visor()"></span><br>
+
+        <label>Valor 2</label>
+        <input type="text" class="input_c" id="second_value" onchange="change_number_nb2(event)"
+            placeholder="Segundo valor"><span id="visor2">v2</span>
         <br><br>
-        <label for="res">Resultado</label>
-        <input type="text" id="res" disabled> <span id="result">=</span>
+        <label>Resultado</label>
+        <input type="text" id="res"class="input_c" disabled placeholder="Resutado"> <span id="result" >=</span>
         <br><br>
         <button id="somar_js" value="+">+JS</button>
         <button id="somar_jq">+JQ</button>
@@ -41,20 +55,9 @@
         <span id="img"></span>
 
 
+
         <script>
-            //     let somar_js = document.getElementById("somar_js").addEventListener("click", () => {
-            //     let v1 = document.getElementById("first_value").value
-            //     let v2 = document.getElementById("second_value").value
-            //         soma = parseInt(v1) + parseInt(v2)
-            //     let res = document.getElementById("res").value = soma
-            //      reset= document.getElementById("reset_inputs").addEventListener("click", ()=>{
-            //         let v1 = document.getElementById("first_value").value=""
-            //         let v2 = document.getElementById("second_value").value=""
-            //         let res = document.getElementById("res").value =""
-
-            //     })
-            // }) 
-
+           
             //limpa os campos de imput e erros
             let rst_inputs = document.getElementById("reset_inputs").addEventListener("click", () => {
                 v1 = document.getElementById("first_value").value = ""
@@ -72,10 +75,6 @@
                 let v2 = document.getElementById("second_value").value
                 let pic_error = document.getElementById("img")
                 let error_alert = document.getElementById("error_alert")
-
-
-
-
                 if (first_value.value != "" && second_value.value != "") {
                     soma = parseFloat(v1) + parseFloat(v2)
                     let res = document.getElementById("res").value = soma
@@ -83,12 +82,7 @@
                 } else {
                     error_alert.innerHTML = "*Erro! Preencha os campos antes de começar"
                     pic_error.innerHTML = "<img src='error.gif'>"
-
-
-
                 }
-
-
 
             })
 
@@ -109,12 +103,12 @@
             })
 
             $("#mutiplicar_jq").click(() => {
-                    let v1 = $("#first_value").val()
-                    let v2 = $("#second_value").val()
-                    soma = parseInt(v1) * parseInt(v2)
-                    $("#res").val(soma)
-                
-                
+                let v1 = $("#first_value").val()
+                let v2 = $("#second_value").val()
+                soma = parseInt(v1) * parseInt(v2)
+                $("#res").val(soma)
+
+
             })
 
             $("#dividir_jq").click(() => {
@@ -132,13 +126,34 @@
             function change_number_nb2() {
                 let visor_v2 = document.getElementById("visor2").innerHTML = (second_value).value
             }
+            
+            const chk = document.getElementById('chk')
+            chk.addEventListener('click', () => {
+                document.body.classList.toggle('dark')
+                
+                const all = document.querySelectorAll('span')
+                all[0].classList.toggle('yellow')
+                all[1].classList.toggle('yellow')
+                all[2].classList.toggle('yellow')
+                all[3].classList.toggle('yellow')
+                all[4].classList.toggle('yellow')
+
+                const input_c = document.querySelectorAll('input')
+                input_c[1].classList.toggle('darkk')
+                input_c[2].classList.toggle('darkk')
+                input_c[3].classList.toggle('darkk')
+                
+                const txt_white = document.querySelectorAll('label')
+                console.log(document.querySelectorAll('label'))
+                txt_white[1].classList.toggle('white')
+                txt_white[2].classList.toggle('white')
+                txt_white[3].classList.toggle('white')
+                
+            })  
+
         </script>
 
-
     </div>
-
-
-
 
 </body>
 
