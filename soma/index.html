@@ -33,10 +33,12 @@
         </div>
         
         <span class="edt" id="titulo">calculadora-js</span>
+        <br><hr>
         <label>Valor 1</label>
         <input type="textr" class="input_c" id="first_value" onchange="change_number_nb1(event)"
-            placeholder="Primeiro valor"><span id="visor1" >v1</span><br><span id="operador_cal"
-            onclick="operador_visor()"></span><br>
+            placeholder="Primeiro valor"><span id="visor1" >v1</span><br>
+            <br>
+            <span id="operador_cal"></span><br>
 
         <label>Valor 2</label>
         <input type="text" class="input_c" id="second_value" onchange="change_number_nb2(event)"
@@ -60,14 +62,16 @@
            
             //limpa os campos de imput e erros
             let rst_inputs = document.getElementById("reset_inputs").addEventListener("click", () => {
-                v1 = document.getElementById("first_value").value = ""
-                v2 = document.getElementById("second_value").value = ""
-                res = document.getElementById("res").value = ""
-                pic_error = document.getElementById("img").innerHTML = ""
-                visor_v1 = document.getElementById("visor1").innerHTML = "v1"
-                visor_v2 = document.getElementById("visor2").innerHTML = "v2"
-                error_alert = document.getElementById("error_alert").innerHTML = ""
-                result = document.getElementById("result").innerHTML = "="
+                document.getElementById("first_value").value = ""
+                document.getElementById("second_value").value = ""
+                document.getElementById("res").value = ""
+                document.getElementById("img").innerHTML = ""
+                document.getElementById("visor1").innerHTML = "v1"
+                document.getElementById("visor2").innerHTML = "v2"
+                document.getElementById("error_alert").innerHTML = ""
+                document.getElementById("result").innerHTML = "="
+                document.getElementById('operador_cal').innerHTML = ""
+                
             })
             //calculo de adição js puro
             let somar_js = document.getElementById("somar_js").addEventListener("click", () => {
@@ -83,7 +87,10 @@
                     error_alert.innerHTML = "*Erro! Preencha os campos antes de começar"
                     pic_error.innerHTML = "<img src='error.gif'>"
                 }
-
+                let valor_do_attributo = document.getElementById("somar_js").getAttribute('value')
+                document.getElementById('operador_cal').innerHTML = valor_do_attributo
+                
+              
             })
 
             $("#somar_jq").click(() => {
@@ -132,11 +139,9 @@
                 document.body.classList.toggle('dark')
                 
                 const all = document.querySelectorAll('span')
-                all[0].classList.toggle('yellow')
-                all[1].classList.toggle('yellow')
-                all[2].classList.toggle('yellow')
-                all[3].classList.toggle('yellow')
-                all[4].classList.toggle('yellow')
+                for(i=0;i<=5; i++){
+                    all[i].classList.toggle('yellow')
+                }
 
                 const input_c = document.querySelectorAll('input')
                 input_c[1].classList.toggle('darkk')
