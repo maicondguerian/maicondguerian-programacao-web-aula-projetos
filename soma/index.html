@@ -35,7 +35,7 @@
         <span class="edt" id="titulo">calculadora-js</span>
         <br><hr>
         <label>Valor 1</label>
-        <input type="textr" class="input_c" id="first_value" onchange="change_number_nb1(event)"
+        <input type="number" class="input_c" id="first_value" onchange="change_number_nb1(event)"
             placeholder="Primeiro valor"><span id="visor1" >v1</span><br>
             <br>
             <span id="operador_cal"></span><br>
@@ -60,29 +60,18 @@
 
         <script>
            
-            //limpa os campos de imput e erros
-            let rst_inputs = document.getElementById("reset_inputs").addEventListener("click", () => {
-                document.getElementById("first_value").value = ""
-                document.getElementById("second_value").value = ""
-                document.getElementById("res").value = ""
-                document.getElementById("img").innerHTML = ""
-                document.getElementById("visor1").innerHTML = "v1"
-                document.getElementById("visor2").innerHTML = "v2"
-                document.getElementById("error_alert").innerHTML = ""
-                document.getElementById("result").innerHTML = "="
-                document.getElementById('operador_cal').innerHTML = ""
-                
-            })
-            //calculo de adição js puro
-            let somar_js = document.getElementById("somar_js").addEventListener("click", () => {
-                let v1 = document.getElementById("first_value").value
-                let v2 = document.getElementById("second_value").value
-                let pic_error = document.getElementById("img")
-                let error_alert = document.getElementById("error_alert")
-                if (first_value.value != "" && second_value.value != "") {
-                    soma = parseFloat(v1) + parseFloat(v2)
+            
+            //declaração e atribuições de variavéis
+            let somar_js = document.getElementById("somar_js").addEventListener("click", () => {//seleciona e cria uma função de click para o botão somar js
+                let v1 = document.getElementById("first_value").value //Declara e armazena o value do elemento(first_value) input em uma variavel
+                let v2 = document.getElementById("second_value").value //Declara e armazena o value do elemento(second_value) input em uma variavel
+                let pic_error = document.getElementById("img") //declara e armazena a "img" do doom em uma variavel para ser inserida via js
+                let error_alert = document.getElementById("error_alert")//declara e armazena um "texto de erro" do doom em uma variavel para ser inserida via js
+
+                if (first_value.value != "" && second_value.value != "") { //verifica se o value do input é diferente de vazio
+                    soma = parseFloat(v1) + parseFloat(v2) //calculo de adição js puro
                     let res = document.getElementById("res").value = soma
-                    let result = document.getElementById("result").innerHTML += soma
+                    let result = document.getElementById("result").innerHTML += soma // imprime o resultado dentro no visor span rsult
                 } else {
                     error_alert.innerHTML = "*Erro! Preencha os campos antes de começar"
                     pic_error.innerHTML = "<img src='error.gif'>"
@@ -90,9 +79,22 @@
                 let valor_do_attributo = document.getElementById("somar_js").getAttribute('value')
                 document.getElementById('operador_cal').innerHTML = valor_do_attributo
                 
-              
+              //limpa os campos de imput e erros
+            let rst_inputs = document.getElementById("reset_inputs").addEventListener("click", () => {
+                first_value.value = ""
+                second_value.value = ""
+                res.value = ""
+                img.innerHTML = ""
+                visor1.innerHTML = "v1"
+                visor2.innerHTML = "v2"
+                error_alert.innerHTML = ""
+                result.innerHTML = "="
+                operador_cal.innerHTML = ""
+                first_value.focus();
             })
-
+            
+            })
+                //soma em JQ
             $("#somar_jq").click(() => {
                 let v1 = $("#first_value").val()
                 let v2 = $("#second_value").val()
@@ -108,7 +110,7 @@
                     res = $("#res").val("")
                 })
             })
-
+                //mutiplicação em JQ
             $("#mutiplicar_jq").click(() => {
                 let v1 = $("#first_value").val()
                 let v2 = $("#second_value").val()
@@ -117,7 +119,7 @@
 
 
             })
-
+            //divisão em JQ
             $("#dividir_jq").click(() => {
                 let v1 = $("#first_value").val()
                 let v2 = $("#second_value").val()
@@ -127,14 +129,14 @@
 
 
             function change_number_nb1() {
-                let visor_v1 = document.getElementById("visor1").innerHTML = (first_value).value
+                let visor_v1 = document.getElementById("visor1").innerHTML = (first_value).value //imprime o valor digitado no visor v1
             }
 
             function change_number_nb2() {
-                let visor_v2 = document.getElementById("visor2").innerHTML = (second_value).value
+                let visor_v2 = document.getElementById("visor2").innerHTML = (second_value).value //imprime o valor digitado no visor v2
             }
             
-            const chk = document.getElementById('chk')
+            const chk = document.getElementById('chk') //mudar tema
             chk.addEventListener('click', () => {
                 document.body.classList.toggle('dark')
                 

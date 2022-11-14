@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Minha lista de afazeres</title>
+</head>
+<body>
+   
+        
+    <script src="jquery.js"></script>
+    <script src="script.js" defer></script>
+    
+        <div class="container pt-100 pb-50">
+
+            <h1>ToDo List byMaicon</h1>
+            <div class="input-group mb-3">
+                <input id="ipt_item_para_a_lista" type="text" class="form-control" placeholder="Nome do item">
+                <button id="btn_add_item" type="button" class="btn btn-outline-secondary">
+                        <i class="fa-thin fa-plus"></i>
+                    </button>
+            </div>
+            <table class="table thead-light table-hover" id="tabela_lista_de_items">
+                <tbody>
+                    <!-- aqui vem todos os items, sendo escritos via js -->
+                </tbody>
+              </table>
+
+        </div>
+        </div>
+    </div>
+</body>
+</html>
